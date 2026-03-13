@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reporte de {{NOMBRE}}</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <main class="card">
+        <h1>Mini Reporte</h1>
+        <section class="row">
+            <div class="col">
+                <p><strong>Estudiante:</strong> <span class="mono">{{NOMBRE}}</span></p>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col">
+                <ul class="notas">
+                    <li><span>Nota 1:</span> <strong>{{N1}}</strong></li>
+                    <li><span>Nota 2:</span> <strong>{{N2}}</strong></li>
+                    <li><span>Nota 3:</span> <strong>{{N3}}</strong></li>
+                </ul>
+            </div>
+
+            <div class="col resumen">
+                <p><span>Promedio:</span> <strong>{{PROMEDIO}}</strong></p>
+                <p class="estado {{CLASE_ESTADO}}">
+                    <span>Estado:</span> <strong>{{ESTADO}}</strong>
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <small>Generado automáticamente — Mini Reporte</small>
+        </footer>
+    </main>
+</body>
+</html>
