@@ -40,16 +40,24 @@ while i <= N:
     while j <= M:
         # solicitar el nombre de la venta
         nombreProducto = input("VENTA {}: ".format(j))
-        precioProducto = input("PRECIO DE LA VENTA {}: ".format(j))
-        cantidadProducto = input("CANTIDAD DE LA VENTA {}: ".format(j))
+
+        try:
+            precioProducto = float(input("PRECIO DE LA VENTA {}: ".format(j)))
+            cantidadProducto = int(input("CANTIDAD DE LA VENTA {}: ".format(j)))
+        except ValueError:
+            print("Error el precio y la cantidad deben ser numeros")
+            raise SystemExit
+
+        #calculamos cosas matematicas
+        totalVentas = precioProducto * cantidadProducto
 
         # agregar el nombre de la venta a la lista de ventas
         ventas.append({
             "nombre": nombreProducto,
             "precio": precioProducto,
-            "cantidad": cantidadProducto
+            "cantidad": cantidadProducto,
+            "totalVentas": totalVentas
         })
-
 
         # incrementar el contador de ventas
         j += 1
@@ -80,13 +88,13 @@ except FileNotFoundError:
 
 # plantilla para cada vendedor para ir almacenandolos eb cartas
 plantilla_vendedor = """
-<main class="card">
+<div class="card">
     <p><strong>Vendedor:</strong> {{NOMBRE}}</p>
 
     <ul>
         {{VENTAS}}
     </ul>
-</main>
+</div>
 """
 
 # variable para guardar todos los vendedores en html
@@ -106,7 +114,14 @@ while i < len(vendedores):
 
     # ciclo while para recorrer la lista de ventas
     while j < len(vendedores[i]["ventas"]):
-        plantilla_lista_ventas += f"<li>Venta {j+1}: {vendedores[i]['ventas'][j]}</li>"
+        venta = vendedores[i]["ventas"][j]
+
+        plantilla_lista_ventas += f"""<li>
+        Producto: {venta['nombre']} <br>
+        Precio: {venta['precio']} <br>
+        Cantidad: {venta['cantidad']} <br>
+        Total: {venta['totalVentas']} 
+        </li>"""
         j += 1
 
     # rellenar la plantilla del vendedor actual

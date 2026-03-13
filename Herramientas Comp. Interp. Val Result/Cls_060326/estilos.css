@@ -29,7 +29,7 @@ h1 {
   margin: 0 0 30px 0;
 }
 
-main.card {
+.card {
   width: min(900px, 95%);
   margin: 0 auto 28px auto;
   background: var(--card);
@@ -39,28 +39,28 @@ main.card {
   padding: 32px;
 }
 
-main.card p {
+.card p {
   margin: 0 0 20px 0;
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
-main.card strong {
+.card strong {
   font-weight: 700;
 }
 
-main.card ul {
+.card ul {
   margin: 0;
   padding-left: 24px;
 }
 
-main.card li {
+.card li {
   font-size: 1.1rem;
   margin-bottom: 12px;
   line-height: 1.5;
 }
 
-main.card li:last-child {
+.card li:last-child {
   margin-bottom: 0;
 }
 
@@ -73,16 +73,16 @@ main.card li:last-child {
     font-size: 1.8rem;
   }
 
-  main.card {
+  .card {
     width: 100%;
     padding: 22px;
   }
 
-  main.card p {
+  .card p {
     font-size: 1.1rem;
   }
 
-  main.card li {
+  .card li {
     font-size: 1rem;
   }
 }
