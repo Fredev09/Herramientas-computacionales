@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Formulario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de estudiantes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
 </head>
 <body>
 
-    <h2>Formulario</h2>
+    <h2>Formulario de registro</h2>
 
     <form action="/guardar" method="POST">
-        <input type="text" name="nombre" placeholder="Escribe tu nombre">
-        <br>
-        <br>
-        <input type="number" name="edad" placeholder="Escribe tu edad">
-        <br>
-        <br>
-        <button type="submit">Enviar</button>
+        <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
+        <input type="number" name="edad" placeholder="Escribe tu edad" required>
+        <button type="submit">Guardar</button>
     </form>
+
+    <h2>Consulta de estudiantes</h2>
+
+    <form action="/consultar" method="POST">
+        <input type="number" name="id" placeholder="Buscar por ID" required>
+        <button type="submit">Buscar</button>
+        <a href="/listar">Mostrar todos</a>
+    </form>
+
+    <hr>
+
+    <h2>Listado de estudiantes</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Que desea hacer?</th>
+        </tr>
+
+        {% if listado %}
+            {% for fila in listado %}
+            <tr>
+                <td>{{ fila[0] }}</td>
+                <td>{{ fila[1] }}</td>
+                <td>{{ fila[2] }}</td>
+                <td>
+                    <a href="/eliminar/{{ fila[0] }}">Eliminar</a>
+                    <a href="/editar/{{ fila[0] }}">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">No hay estudiantes registrados</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+        {% for msg in mensajes %}
+            <script>
+                alert("{{ msg }}");
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 </body>
 </html>

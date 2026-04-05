@@ -31,13 +31,13 @@ class Estudiantes:
     def consulta(self, datos):
         con = self.abrir()
         cursor = con.cursor()
-        sql = "SELECT nombre, edad FROM estudiantes WHERE id = %s"
+        sql = "SELECT id, nombre, edad FROM estudiantes WHERE id = %s"
         cursor.execute(sql, datos)
-        resultado = cursor.fetchall()
+        resultado = cursor.fetchone()
         con.close()
         return resultado
     
-    def modificar(self, datos):
+    def actualizar(self, datos):
         con =self.abrir()
         cursor = con.cursor()
         sql = "UPDATE estudiantes SET nombre = %s, edad = %s WHERE id = %s" 
