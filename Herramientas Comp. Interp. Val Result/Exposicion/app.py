@@ -60,10 +60,10 @@ def actualizar():
     return redirect(url_for("inicio"))
 
 
-@app.route("/eliminar/<int:id>")
+@app.route("/eliminar/<id>", methods=["POST"])
 def eliminar(id):
     estudiante.eliminar((id,))
-    flash("Estudiante eliminado exitosamente")
+    flash("Eliminado")
     return redirect(url_for("inicio"))
 
 

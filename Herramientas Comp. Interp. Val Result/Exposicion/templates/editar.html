@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
-
-</head>
-
+    <title>Editar estudiante</title>
+<link rel="stylesheet" href="/static/estilos.css"></head>
 <body>
 
     <h2>Editar estudiante</h2>
 
-    <form action="/actualizar" method="POST">
-
-        <label>ID:</label>
+    <form action="{{ url_for('actualizar') }}" method="post">
         <input type="hidden" name="id" value="{{ dato[0] }}">
-
-        <input type="text" value="{{ dato[0] }}" disabled>
-
-        <label>Nombre:</label>
         <input type="text" name="nombre" value="{{ dato[1] }}">
-
-        <label>Edad:</label>
         <input type="number" name="edad" value="{{ dato[2] }}">
-
         <button type="submit">Actualizar</button>
     </form>
 
-</body>
+    <div style="text-align:center;">
+        <a href="{{ url_for('inicio') }}">Volver</a>
+    </div>
 
+</body>
 </html>

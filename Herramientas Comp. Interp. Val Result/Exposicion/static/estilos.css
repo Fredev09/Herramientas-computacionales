@@ -5,14 +5,12 @@ body {
     padding: 30px;
 }
 
-/* Título */
 h2 {
     text-align: center;
     color: #222;
     margin-bottom: 20px;
 }
 
-/* Formularios tipo tarjeta */
 form {
     background: #ffffff;
     padding: 25px;
@@ -27,7 +25,6 @@ form:hover {
     transform: translateY(-3px);
 }
 
-/* Inputs */
 input {
     width: 100%;
     padding: 10px;
@@ -43,7 +40,6 @@ input:focus {
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
-/* Botón */
 button, input[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -60,7 +56,6 @@ button:hover, input[type="submit"]:hover {
     background: #388e3c;
 }
 
-/* Links */
 a {
     color: #4CAF50;
     text-decoration: none;
@@ -71,14 +66,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Línea separadora */
 hr {
     margin: 40px 0;
     border: none;
     border-top: 1px solid #ddd;
 }
 
-/* Tabla */
 table {
     width: 85%;
     margin: 30px auto;
@@ -89,26 +82,22 @@ table {
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* Encabezados */
 th {
     background: #4CAF50;
     color: white;
     padding: 12px;
 }
 
-/* Celdas */
 td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
 
-/* Hover filas */
 tr:hover {
     background-color: #f9f9f9;
 }
 
-/* Botones de acciones */
 td a {
     margin: 0 8px;
     padding: 5px 8px;
@@ -116,15 +105,12 @@ td a {
     transition: 0.2s;
 }
 
-/* Editar */
 td a:first-child {
-    background-color: #2196F3;
+    background-color: #f44336;
     color: white;
 }
-
-/* Eliminar */
 td a:last-child {
-    background-color: #f44336;
+    background-color: #2196F3;
     color: white;
 }
 
