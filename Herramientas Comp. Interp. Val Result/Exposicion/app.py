@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-import mysql.connector
 import estudiantes
 
 app = Flask(__name__)
